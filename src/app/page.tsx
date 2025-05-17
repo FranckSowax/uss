@@ -44,7 +44,7 @@ export default function HomePage() {
     <>
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-light to-white">
-        <div className="container-page grid md:grid-cols-2 gap-8 items-center">
+        <div className="container-page grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-montserrat font-bold text-dark">
               Bienvenue à l&apos;<span className="text-primary">Université des Sciences de la Santé</span>
@@ -72,12 +72,13 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="hidden md:block relative h-72 lg:h-80">
+          <div className="relative h-60 sm:h-64 md:h-72 lg:h-80">
             <div className="rounded-lg overflow-hidden h-full w-full relative">
               <Image 
                 src="/images/replicate-prediction-we0yaf6hrsrmc0cpve0v8ebr1w.jpg" 
                 alt="Campus de l'Université des Sciences de la Santé" 
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ objectFit: 'cover' }}
                 className="rounded-lg shadow-lg"
                 priority
