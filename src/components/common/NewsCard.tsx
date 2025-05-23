@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Card from '../ui/Card';
 
 type NewsCardProps = {
@@ -35,14 +36,17 @@ const NewsCard = ({
 
   return (
     <Card className={`h-full flex flex-col ${className}`} padding="none">
-      <div className="h-48 relative">
+      <div className="aspect-[16/9] relative w-full rounded-t-lg overflow-hidden">
         {imageUrl ? (
           <div 
-            className="w-full h-full bg-cover bg-center rounded-t-lg" 
-            style={{ backgroundImage: `url(${imageUrl})` }}
+            className="w-full h-full bg-cover bg-center transition-transform duration-300 hover:scale-105"
+            style={{ 
+              backgroundImage: `url(${imageUrl})`,
+              height: '200px'
+            }}
           />
         ) : (
-          <div className="w-full h-full bg-gray-200 flex items-center justify-center rounded-t-lg">
+          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
             <div className="text-gray-500">Image non disponible</div>
           </div>
         )}
