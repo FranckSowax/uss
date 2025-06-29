@@ -1,8 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Ces variables d'environnement doivent être définies dans le fichier .env.local
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+// En utilisant des valeurs par défaut pour le développement local
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder-project.supabase.co';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key';
 
 // Création du client Supabase pour une utilisation côté client
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
@@ -15,27 +16,42 @@ export const isClientSide = isClient;
 
 // Fonction pour vérifier rapidement si un utilisateur est connecté
 export const isUserLoggedIn = async () => {
-  const { data: { user } } = await supabase.auth.getUser();
-  return !!user;
+  try {
+    const { data: { user } } = await supabase.auth.getUser();
+    return !!user;
+  } catch (error) {
+    console.error('Error checking user login status:', error);
+    return false;
+  }
 };
 
 // Fonction utilitaire pour récupérer l'utilisateur actuel avec son profil
 export const getCurrentUser = async () => {
-  const { data: { user } } = await supabase.auth.getUser();
-  
-  if (!user) return null;
-  
-  // Récupérer les informations de profil
-  const { data: profile } = await supabase
-    .from('user_profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single();
+  try {
+    const { data: { user } } = await supabase.auth.getUser();
     
-  return {
-    ...user,
-    profile
-  };
+    if (!user) return null;
+    
+    // Récupérer les informations de profil
+    try {
+      const { data: profile } = await supabase
+        .from('user_profiles')
+        .select('*')
+        .eq('id', user.id)
+        .single();
+        
+      return {
+        ...user,
+        profile
+      };
+    } catch (error) {
+      console.error('Error fetching user profile:', error);
+      return user;
+    }
+  } catch (error) {
+    console.error('Error getting current user:', error);
+    return null;
+  }
 };
 
 // Fonctions d'authentification

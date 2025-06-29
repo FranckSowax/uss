@@ -126,8 +126,8 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {/* Carte Formation 1 - Médecine Générale */}
-            <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="relative h-48 overflow-hidden">
+            <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 aspect-square flex flex-col">
+              <div className="relative flex-1 overflow-hidden">
                 <div className="absolute inset-0 bg-cover bg-center" 
                   style={{ backgroundImage: "url('/images/formations/medecine generale.jpg')" }}>
                 </div>
@@ -136,16 +136,18 @@ export default function HomePage() {
                   6 ans
                 </div>
               </div>
-              <div className="p-5">
-                <h3 className="text-xl font-semibold mb-2 text-dark group-hover:text-primary transition-colors">
-                  Médecine Générale
-                </h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Formation complète pour devenir médecin généraliste avec une approche pratique dès la première année.
-                </p>
+              <div className="flex-1 p-4 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold mb-2 text-dark group-hover:text-primary transition-colors">
+                    Médecine Générale
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-3 line-clamp-3">
+                    Formation complète pour devenir médecin généraliste avec une approche pratique dès la première année.
+                  </p>
+                </div>
                 <Link 
                   href="/filieres/medecine" 
-                  className="inline-flex items-center text-primary font-medium hover:text-primary-dark transition-colors"
+                  className="inline-flex items-center text-primary font-medium hover:text-primary-dark transition-colors text-sm"
                 >
                   Découvrir le programme
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -156,8 +158,8 @@ export default function HomePage() {
             </div>
 
             {/* Carte Formation 2 - Sciences Infirmières */}
-            <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="relative h-48 overflow-hidden">
+            <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 aspect-square flex flex-col">
+              <div className="relative flex-1 overflow-hidden">
                 <div className="absolute inset-0 bg-cover bg-center" 
                   style={{ backgroundImage: "url('/images/formations/soins infirmiere.jpg')" }}>
                 </div>
@@ -166,16 +168,18 @@ export default function HomePage() {
                   3 ans
                 </div>
               </div>
-              <div className="p-5">
-                <h3 className="text-xl font-semibold mb-2 text-dark group-hover:text-primary transition-colors">
-                  Sciences Infirmières
-                </h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Devenez infirmier(e) qualifié(e) avec une formation alliant théorie et stages en milieu hospitalier.
-                </p>
+              <div className="flex-1 p-4 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold mb-2 text-dark group-hover:text-primary transition-colors">
+                    Sciences Infirmières
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-3 line-clamp-3">
+                    Devenez infirmier(e) qualifié(e) avec une formation alliant théorie et stages en milieu hospitalier.
+                  </p>
+                </div>
                 <Link 
                   href="/filieres/infirmier" 
-                  className="inline-flex items-center text-primary font-medium hover:text-primary-dark transition-colors"
+                  className="inline-flex items-center text-primary font-medium hover:text-primary-dark transition-colors text-sm"
                 >
                   Découvrir le programme
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -186,8 +190,8 @@ export default function HomePage() {
             </div>
 
             {/* Carte Formation 3 - Pharmacie */}
-            <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="relative h-48 overflow-hidden">
+            <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 aspect-square flex flex-col">
+              <div className="relative flex-1 overflow-hidden">
                 <div className="absolute inset-0 bg-cover bg-center" 
                   style={{ backgroundImage: "url('/images/formations/pharmacie.jpg')" }}>
                 </div>
@@ -196,16 +200,18 @@ export default function HomePage() {
                   5 ans
                 </div>
               </div>
-              <div className="p-5">
-                <h3 className="text-xl font-semibold mb-2 text-dark group-hover:text-primary transition-colors">
-                  Pharmacie
-                </h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  Formation spécialisée en sciences pharmaceutiques avec accès aux laboratoires de recherche modernes.
-                </p>
+              <div className="flex-1 p-4 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold mb-2 text-dark group-hover:text-primary transition-colors">
+                    Pharmacie
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-3 line-clamp-3">
+                    Formation spécialisée en sciences pharmaceutiques avec accès aux laboratoires de recherche modernes.
+                  </p>
+                </div>
                 <Link 
                   href="/filieres/pharmacie" 
-                  className="inline-flex items-center text-primary font-medium hover:text-primary-dark transition-colors"
+                  className="inline-flex items-center text-primary font-medium hover:text-primary-dark transition-colors text-sm"
                 >
                   Découvrir le programme
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
